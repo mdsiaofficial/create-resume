@@ -26,6 +26,10 @@ const __dirname = path.dirname(__filename);
 const TEMPLATE_FILE = path.join(__dirname, "template.html");
 const OUTPUT_FILE = path.join(__dirname, "resume.pdf");
 
+function hasItems(arr: unknown[] | undefined): boolean {
+  return Array.isArray(arr) && arr.length > 0;
+}
+
 function transformToResumeContent(data: MasterData) {
   const skillGroups: SkillGroup[] = [
     "languages",
@@ -49,16 +53,16 @@ function transformToResumeContent(data: MasterData) {
     experience: data.experience.filter((e) => e.show_resume),
     education: data.education.filter((e) => e.show_resume),
     skills: skillGroups,
-    certifications: data.certifications?.filter((c) => c.show_resume),
-    projects: data.projects.filter((p) => p.show_resume),
-    achievements: data.achievements.filter((a) => a.show_resume),
-    volunteerExperience: data.volunteerExperience.filter((v) => v.show_resume),
-    languages: data.languages?.filter((l) => l.show_resume),
-    customSections: data.customSections?.filter((c) => c.show_resume),
+    ...(data.certifications?.filter((c) => c.show_resume).length > 0 && { certifications: data.certifications.filter((c) => c.show_resume) }),
+    ...(data.projects.filter((p) => p.show_resume).length > 0 && { projects: data.projects.filter((p) => p.show_resume) }),
+    ...(data.achievements.filter((a) => a.show_resume).length > 0 && { achievements: data.achievements.filter((a) => a.show_resume) }),
+    ...(data.volunteerExperience.filter((v) => v.show_resume).length > 0 && { volunteerExperience: data.volunteerExperience.filter((v) => v.show_resume) }),
+    ...(data.languages?.filter((l) => l.show_resume).length > 0 && { languages: data.languages.filter((l) => l.show_resume) }),
+    ...(data.customSections?.filter((c) => c.show_resume).length > 0 && { customSections: data.customSections.filter((c) => c.show_resume) }),
     socialLinks: data.socialLinks,
-    professionalAffiliations: data.professionalAffiliations?.filter((a) => a.show_resume),
-    publications: data.publications?.filter((p) => p.show_resume),
-    references: data.references?.filter((r) => r.show_resume),
+    ...(data.professionalAffiliations?.filter((a) => a.show_resume).length > 0 && { professionalAffiliations: data.professionalAffiliations.filter((a) => a.show_resume) }),
+    ...(data.publications?.filter((p) => p.show_resume).length > 0 && { publications: data.publications.filter((p) => p.show_resume) }),
+    ...(data.references?.filter((r) => r.show_resume).length > 0 && { references: data.references.filter((r) => r.show_resume) }),
   };
 }
 
@@ -87,6 +91,10 @@ function registerHandlebarsHelpers() {
 
   Handlebars.registerHelper("last", function (this: number, arrLen: number) {
     return this === arrLen - 1;
+  });
+
+  Handlebars.registerHelper("hasItems", function (arr: unknown[] | undefined) {
+    return hasItems(arr);
   });
 }
 

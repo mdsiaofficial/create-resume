@@ -412,7 +412,7 @@ export const masterData: MasterData = {
   ],
   projects: [
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "Book Store MERN",
       role: "Full Stack Developer",
@@ -428,7 +428,7 @@ export const masterData: MasterData = {
       featured: true,
     },
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "Personal Portfolio",
       role: "Solo Developer",
@@ -444,7 +444,7 @@ export const masterData: MasterData = {
       featured: true,
     },
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "AI Content Humanizer",
       role: "Full Stack Developer",
@@ -460,7 +460,7 @@ export const masterData: MasterData = {
       featured: true,
     },
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "CRUD App MERN",
       bullets: [
@@ -474,7 +474,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "Positivus - Digital Marketing",
       bullets: [
@@ -489,7 +489,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "CRUD Data Table",
       bullets: [
@@ -504,7 +504,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "Kanban Board",
       bullets: [
@@ -519,7 +519,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "Weather Dashboard",
       bullets: [
@@ -534,7 +534,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "AI Company Website",
       bullets: [
@@ -548,7 +548,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "Quiz Application",
       bullets: [
@@ -562,7 +562,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "Restaurant App UI",
       bullets: [
@@ -576,7 +576,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "Todo Application",
       bullets: [
@@ -590,7 +590,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "Analog Clock",
       bullets: [
@@ -604,7 +604,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "Club Portal",
       bullets: [
@@ -618,7 +618,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "React Router Demo",
       bullets: [
@@ -632,7 +632,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: true,
+      show_portfolio: false,
       show_resume: false,
       name: "Library Management System",
       bullets: [
@@ -658,7 +658,7 @@ export const masterData: MasterData = {
       startDate: "2026",
       endDate: "2026",
       link: "https://ntexsourcing.com/",
-      image: "https://i.ibb.co/n353KBb/cpccu.png",
+      // image: "https://i.ibb.co/n353KBb/cpccu.png",
       featured: false,
       deployment: "Google Cloud Platform",
       architecture: "Full Stack",
@@ -677,7 +677,7 @@ export const masterData: MasterData = {
       startDate: "2025",
       endDate: "2025",
       link: "https://visualcenter.live/",
-      image: "https://i.ibb.co/n353KBb/cpccu.png",
+      // image: "https://i.ibb.co/n353KBb/cpccu.png",
       featured: true,
       deployment: "VPS Deployment",
       architecture: "Full Stack",
@@ -695,7 +695,7 @@ export const masterData: MasterData = {
       startDate: "2024",
       endDate: "2025",
       link: "https://midgen.ai/",
-      image: "https://i.ibb.co/n353KBb/cpccu.png",
+      // image: "https://i.ibb.co/n353KBb/cpccu.png",
       featured: true,
       deployment: "Google Cloud Platform",
       architecture: "Full Stack",
@@ -714,7 +714,7 @@ export const masterData: MasterData = {
       endDate: "2025",
       link: "https://cpccu.club",
       github: "https://github.com/cpccu/cpccu/",
-      image: "https://i.ibb.co/n353KBb/cpccu.png",
+      // image: "https://i.ibb.co/n353KBb/cpccu.png",
       featured: false,
       deployment: "VPS Deployment",
       architecture: "Full Stack",
@@ -789,7 +789,7 @@ export const masterData: MasterData = {
     {
       show_portfolio: true,
       show_resume: true,
-      title: "23rd Intra University Programming Contest - Champion",
+      title: "23rd Intra University Programming Contest",
       issuer: "City University",
       date: "Oct 2022",
       location: "City University",
@@ -889,8 +889,8 @@ export const masterData: MasterData = {
   ],
   professionalAffiliations: [
     {
-      show_portfolio: true,
-      show_resume: true,
+      show_portfolio: false,
+      show_resume: false,
       organization: "BASIS Student Forum City University Chapter(Bangladesh Association of Software and Information Services)",
       role: "Co-Convenor",
       startDate: "2024",
@@ -900,8 +900,8 @@ export const masterData: MasterData = {
   ],
   publications: [
     {
-      show_portfolio: true,
-      show_resume: true,
+      show_portfolio: false,
+      show_resume: false,
       title: "Building Scalable Web Applications with Next.js and MongoDB",
       publisher: "Medium",
       date: "2025",
@@ -911,24 +911,24 @@ export const masterData: MasterData = {
   ],
   references: [
     {
-      show_portfolio: true,
-      show_resume: true,
+      show_portfolio: false,
+      show_resume: false,
       name: "Sharmin Akter",
       relationship: "Assistant Professor",
       company: "City University Bangladesh",
       email: "sharmin.cse051@gmail.com",
     },
     {
-      show_portfolio: true,
-      show_resume: true,
+      show_portfolio: false,
+      show_resume: false,
       name: "Md Ataullah Bhuiyan",
       relationship: "Senior Lecturer & Coordinator",
       company: "City University Bangladesh",
       email: "abab_bn@yahoo.com",
     },
     {
-      show_portfolio: true,
-      show_resume: true,
+      show_portfolio: false,
+      show_resume: false,
       name: "Md Abu Taher Saikat",
       relationship: "Technical Lead",
       company: "Midgen",
@@ -946,3 +946,12 @@ export const masterData: MasterData = {
 };
 
 export const portfolioData = masterData;
+
+// needs for portfolio
+// export const stats = [
+//   { icon: FaUsers, label: "Team Members Led", value: "500+" },
+//   { icon: FaTrophy, label: "Years Leadership", value: "6+" },
+//   { icon: FaRocket, label: "Products Shipped", value: "5+" },
+//   { icon: FaCode, label: "Years Experience", value: "4+" },
+// ];
+

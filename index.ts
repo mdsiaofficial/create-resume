@@ -15,6 +15,9 @@ import type {
   LanguageProficiency,
   CustomSection,
   SkillGroup,
+  ProfessionalAffiliation,
+  Publication,
+  Reference,
 } from "./types";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -53,6 +56,9 @@ function transformToResumeContent(data: MasterData) {
     languages: data.languages?.filter((l) => l.show_resume),
     customSections: data.customSections?.filter((c) => c.show_resume),
     socialLinks: data.socialLinks,
+    professionalAffiliations: data.professionalAffiliations?.filter((a) => a.show_resume),
+    publications: data.publications?.filter((p) => p.show_resume),
+    references: data.references?.filter((r) => r.show_resume),
   };
 }
 
@@ -110,6 +116,9 @@ async function main() {
     VOLUNTEER: data.volunteerExperience,
     LANGUAGES: data.languages,
     CUSTOM_SECTIONS: data.customSections,
+    PROFESSIONAL_AFFILIATIONS: data.professionalAffiliations,
+    PUBLICATIONS: data.publications,
+    REFERENCES: data.references,
   });
 
   const browser = await puppeteer.launch({ headless: true });

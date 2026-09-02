@@ -160,6 +160,33 @@ export interface LanguageProficiency extends BaseItem {
   proficiency?: string;
 }
 
+export interface ProfessionalAffiliation extends BaseItem {
+  organization: string;
+  role?: string;
+  startDate?: string;
+  endDate?: string;
+  current?: boolean;
+  description?: string;
+  website?: string;
+  logo?: string;
+}
+
+export interface Publication extends BaseItem {
+  title: string;
+  publisher?: string;
+  date?: string;
+  url?: string;
+  description?: string;
+}
+
+export interface Reference extends BaseItem {
+  name: string;
+  relationship?: string;
+  company?: string;
+  email?: string;
+  phone?: string;
+}
+
 export interface SocialLinks {
   linkedin?: string;
   github?: string;
@@ -193,6 +220,9 @@ export interface MasterData {
   achievements: Achievement[];
   volunteerExperience: VolunteerExperience[];
   languages: LanguageProficiency[];
+  professionalAffiliations?: ProfessionalAffiliation[];
+  publications?: Publication[];
+  references?: Reference[];
   customSections?: CustomSection[];
   socialLinks?: SocialLinks;
 }

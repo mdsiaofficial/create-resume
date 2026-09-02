@@ -359,33 +359,35 @@
   </section>
   {{/if}}
 
+
+  {{#if PROFESSIONAL_AFFILIATIONS}}
+  <section>
+    <h2>Professional Affiliations</h2>
+    <div class="two-col">
+      {{#each PROFESSIONAL_AFFILIATIONS}}
+      <div class="entry">
+        <div class="entry-row">
+          {{#if website}}<span class="entry-title"><a href="{{website}}" target="_blank">{{organization}}</a></span>{{else}}<span class="entry-title">{{organization}}</span>{{/if}}
+          {{#if startDate}}<span class="entry-date">{{startDate}}{{#if current}} – Present{{/if}}</span>{{/if}}
+        </div>
+        {{#if role}}<div class="entry-sub">{{role}}</div>{{/if}}
+      </div>
+      {{/each}}
+    </div>
+  </section>
+  {{/if}}
+
   {{#if PUBLICATIONS}}
   <section>
     <h2>Publications</h2>
     {{#each PUBLICATIONS}}
     <div class="entry">
       <div class="entry-row">
-        <span class="entry-title">{{title}}</span>
+        {{#if url}}<span class="entry-title"><a href="{{url}}" target="_blank">{{title}}</a></span>{{else}}<span class="entry-title">{{title}}</span>{{/if}}
         {{#if date}}<span class="entry-date">{{date}}</span>{{/if}}
       </div>
       {{#if publisher}}<div class="entry-sub">{{publisher}}</div>{{/if}}
-      {{#if description}}<p class="summary" style="margin-top:4px;font-size:12.5px;">{{description}}</p>{{/if}}
-    </div>
-    {{/each}}
-  </section>
-  {{/if}}
-
-  {{#if AFFILIATIONS}}
-  <section>
-    <h2>Professional Affiliations</h2>
-    {{#each AFFILIATIONS}}
-    <div class="entry">
-      <div class="entry-row">
-        <span class="entry-title">{{organization}}</span>
-        {{#if startDate}}<span class="entry-date">{{startDate}}{{#if endDate}} – {{endDate}}{{/if}}</span>{{/if}}
-      </div>
-      {{#if role}}<div class="entry-sub">{{role}}</div>{{/if}}
-      {{#if description}}<p class="summary" style="margin-top:4px;font-size:12.5px;">{{description}}</p>{{/if}}
+      {{#if description}}<p class="summary" style="margin-top:2px;font-size:12px;">{{description}}</p>{{/if}}
     </div>
     {{/each}}
   </section>
@@ -431,36 +433,6 @@
   </section>
   {{/each}}
   {{/if}}
-
-  {{#if REAL_WORLD_PROJECTS}}
-  <section>
-    <h2>Real World Projects</h2>
-    {{#each REAL_WORLD_PROJECTS}}
-    <div class="entry">
-      <div class="entry-row">
-        <span class="entry-title">{{name}}{{#if role}} — {{role}}{{/if}}</span>
-        <span class="entry-date">
-          {{#if startDate}}{{startDate}}{{/if}}{{#if endDate}} – {{endDate}}{{/if}}
-          {{#if link}}<span class="live">Live</span>{{/if}}
-        </span>
-      </div>
-      <ul class="bullets">
-        {{#each bullets}}<li>{{this}}</li>{{/each}}
-      </ul>
-      {{#if technologies}}
-      <div class="tech-line"><strong>Technologies:</strong> {{technologies}}</div>
-      {{/if}}
-      {{#if deployment}}
-      <div class="entry-tech"><strong>Deployment:</strong> {{deployment}}</div>
-      {{/if}}
-      {{#if architecture}}
-      <div class="entry-tech"><strong>Architecture:</strong> {{architecture}}</div>
-      {{/if}}
-    </div>
-    {{/each}}
-  </section>
-  {{/if}}
-
 
 
 </div>

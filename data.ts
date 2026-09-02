@@ -412,7 +412,7 @@ export const masterData: MasterData = {
   ],
   projects: [
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "Book Store MERN",
       role: "Full Stack Developer",
@@ -428,7 +428,7 @@ export const masterData: MasterData = {
       featured: true,
     },
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "Personal Portfolio",
       role: "Solo Developer",
@@ -444,7 +444,7 @@ export const masterData: MasterData = {
       featured: true,
     },
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "AI Content Humanizer",
       role: "Full Stack Developer",
@@ -460,7 +460,7 @@ export const masterData: MasterData = {
       featured: true,
     },
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "CRUD App MERN",
       bullets: [
@@ -474,7 +474,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "Positivus - Digital Marketing",
       bullets: [
@@ -489,7 +489,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "CRUD Data Table",
       bullets: [
@@ -504,7 +504,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "Kanban Board",
       bullets: [
@@ -519,7 +519,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "Weather Dashboard",
       bullets: [
@@ -534,7 +534,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "AI Company Website",
       bullets: [
@@ -548,7 +548,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "Quiz Application",
       bullets: [
@@ -562,7 +562,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "Restaurant App UI",
       bullets: [
@@ -576,7 +576,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "Todo Application",
       bullets: [
@@ -590,7 +590,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "Analog Clock",
       bullets: [
@@ -604,7 +604,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "Club Portal",
       bullets: [
@@ -618,7 +618,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "React Router Demo",
       bullets: [
@@ -632,7 +632,7 @@ export const masterData: MasterData = {
       featured: false,
     },
     {
-      show_portfolio: false,
+      show_portfolio: true,
       show_resume: false,
       name: "Library Management System",
       bullets: [
@@ -885,6 +885,54 @@ export const masterData: MasterData = {
       show_resume: true,
       language: "English",
       proficiency: "Professional Working",
+    },
+  ],
+  professionalAffiliations: [
+    {
+      show_portfolio: true,
+      show_resume: true,
+      organization: "BASIS Student Forum City University Chapter(Bangladesh Association of Software and Information Services)",
+      role: "Co-Convenor",
+      startDate: "2024",
+      current: true,
+      website: "https://www.basis.org.bd/",
+    },
+  ],
+  publications: [
+    {
+      show_portfolio: true,
+      show_resume: true,
+      title: "Building Scalable Web Applications with Next.js and MongoDB",
+      publisher: "Medium",
+      date: "2025",
+      url: "https://medium.com/@mdsiaofficial",
+      description: "A comprehensive guide on building production-ready applications using modern web technologies.",
+    },
+  ],
+  references: [
+    {
+      show_portfolio: true,
+      show_resume: true,
+      name: "Sharmin Akter",
+      relationship: "Assistant Professor",
+      company: "City University Bangladesh",
+      email: "sharmin.cse051@gmail.com",
+    },
+    {
+      show_portfolio: true,
+      show_resume: true,
+      name: "Md Ataullah Bhuiyan",
+      relationship: "Senior Lecturer & Coordinator",
+      company: "City University Bangladesh",
+      email: "abab_bn@yahoo.com",
+    },
+    {
+      show_portfolio: true,
+      show_resume: true,
+      name: "Md Abu Taher Saikat",
+      relationship: "Technical Lead",
+      company: "Midgen",
+      email: "taher@midgen.ai",
     },
   ],
   socialLinks: {

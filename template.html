@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2530;
+    --body-text:#374151;
+    --muted:#6b7280;
+    --rule-strong:#1c2530;
+    --rule-light:#d6d9de;
+    --page-bg:#f3f4f6;
+    --paper:#ffffff;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0;
+    padding:0;
+    background:var(--page-bg);
+    font-family:'Poppins', Arial, Helvetica, sans-serif;
+    color:var(--body-text);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    max-width:850px;
+    margin:32px auto;
+    background:var(--paper);
+    padding:48px 56px 56px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06);
+  }
+
+  header{ margin-bottom:14px; }
+
+  h1{
+    margin:0 0 8px 0;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    color:var(--ink);
+  }
+
+  .contact{
+    font-size:12.5px;
+    color:var(--body-text);
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 16px;
+  }
+  .contact-item{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+  }
+  .contact-item a{ color:var(--body-text); text-decoration:none; }
+  .contact-item a:hover{ text-decoration:underline; }
+  .contact-sep{ color:var(--rule-light); }
+
+  .header-rule{
+    border:none;
+    border-top:2px solid var(--rule-strong);
+    margin:14px 0 18px 0;
+  }
+
+  section{ margin-bottom:16px; }
+  section:last-child{ margin-bottom:0; }
+
+  h2{
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:0.7px;
+    color:var(--ink);
+    text-transform:uppercase;
+    margin:0 0 8px 0;
+    padding-bottom:4px;
+    border-bottom:1px solid var(--rule-light);
+  }
+
+  .summary{
+    font-size:13px;
+    line-height:1.6;
+    margin:0;
+    color:var(--body-text);
+  }
+
+  .entry{ margin-bottom:12px; }
+  .entry:last-child{ margin-bottom:0; }
+
+  .entry-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:12px;
+  }
+
+  .entry-title{
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--ink);
+  }
+
+  .entry-title .live{
+    font-weight:500;
+    font-size:11.5px;
+    text-decoration:underline;
+    color:var(--ink);
+    margin-left:8px;
+  }
+
+  .entry-date{
+    font-size:12px;
+    font-weight:500;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+
+  .entry-sub{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:2px;
+  }
+  .entry-sub .dot{ margin:0 5px; }
+
+  .entry-tech{
+    font-size:11.5px;
+    color:var(--muted);
+    margin-top:2px;
+    font-style:italic;
+  }
+
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+    gap:4px 24px;
+  }
+  .skill-row{
+    font-size:12.5px;
+    line-height:1.7;
+    color:var(--body-text);
+  }
+  .skill-row strong{ color:var(--ink); font-weight:600; }
+
+  ul.bullets{
+    margin:6px 0 0 0;
+    padding-left:16px;
+  }
+  ul.bullets li{
+    font-size:12.5px;
+    line-height:1.55;
+    color:var(--body-text);
+    margin-bottom:3px;
+  }
+  ul.bullets li::marker{ color:var(--muted); }
+
+  .tech-line{
+    font-size:11.5px;
+    line-height:1.5;
+    margin-top:4px;
+    color:var(--muted);
+  }
+  .tech-line strong{ color:var(--ink); font-weight:600; }
+
+  ul.certs{
+    margin:0;
+    padding-left:16px;
+  }
+  ul.certs li{
+    font-size:12.5px;
+    line-height:1.6;
+    color:var(--body-text);
+    margin-bottom:4px;
+  }
+  ul.certs li strong{ color:var(--ink); font-weight:600; }
+
+  .two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0 32px;
+  }
+
+  @page{
+    size: A4;
+    margin: 12mm 14mm;
+  }
+  @media print{
+    body{ background:var(--paper); }
+    .page{
+      box-shadow:none;
+      margin:0;
+      padding:0;
+      max-width:100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header>
+    <h1>{{FULL_NAME}}</h1>
+    <div class="contact">
+      {{#if PHONE}}<span class="contact-item"><a href="tel:{{PHONE}}">{{PHONE}}</a></span>{{/if}}
+      <span class="contact-item"><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></span>
+      {{#if LOCATION}}<span class="contact-item">{{LOCATION}}</span>{{/if}}
+      {{#if WEBSITE}}<span class="contact-item"><a href="{{WEBSITE}}">{{WEBSITE}}</a></span>{{/if}}
+      {{#if GITHUB}}<span class="contact-item"><a href="https://{{GITHUB}}">{{GITHUB}}</a></span>{{/if}}
+      {{#if LINKEDIN}}<span class="contact-item"><a href="https://{{LINKEDIN}}">{{LINKEDIN}}</a></span>{{/if}}
+    </div>
+    <hr class="header-rule">
+  </header>
+
+  {{#if SUMMARY}}
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">{{SUMMARY}}</p>
+  </section>
+  {{/if}}
+
+  {{#if EDUCATION}}
+  <section>
+    <h2>Education</h2>
+    {{#each EDUCATION}}
+    <div class="entry">
+      <div class="entry-row">
+        <span class="entry-title">{{degree}}{{#if field}} in {{field}}{{/if}}</span>
+        <span class="entry-date">{{#if startYear}}{{startYear}}{{/if}}{{#if endYear}} – {{endYear}}{{/if}}</span>
+      </div>
+      <div class="entry-sub">
+        {{institution}}
+        {{#if gpa}}<span class="dot">·</span>{{gpa}}{{/if}}
+        {{#if honors}}<span class="dot">·</span>{{honors}}{{/if}}
+      </div>
+      {{#if coursework}}
+      <div class="entry-tech">Relevant coursework: {{coursework}}</div>
+      {{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if SKILLS}}
+  <section>
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      {{#each SKILLS}}
+      <div class="skill-row"><strong>{{category}}:</strong> {{skills}}</div>
+      {{/each}}
+    </div>
+  </section>
+  {{/if}}
+
+  {{#if EXPERIENCE}}
+  <section>
+    <h2>Experience</h2>
+    {{#each EXPERIENCE}}
+    <div class="entry">
+      <div class="entry-row">
+        <span class="entry-title">{{title}}{{#if company}} — {{company}}{{/if}}</span>
+        <span class="entry-date">
+          {{startDate}}{{#if endDate}} – {{endDate}}{{/if}}{{#if current}} – Present{{/if}}
+        </span>
+      </div>
+      {{#if location}}<div class="entry-sub">{{location}}</div>{{/if}}
+      <ul class="bullets">
+        {{#each bullets}}<li>{{this}}</li>{{/each}}
+      </ul>
+      {{#if technologies}}
+      <div class="tech-line"><strong>Technologies:</strong> {{technologies}}</div>
+      {{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if PROJECTS}}
+  <section>
+    <h2>Projects</h2>
+    {{#each PROJECTS}}
+    <div class="entry">
+      <div class="entry-row">
+        <span class="entry-title">{{name}}{{#if role}} — {{role}}{{/if}}</span>
+        <span class="entry-date">
+          {{#if startDate}}{{startDate}}{{/if}}{{#if endDate}} – {{endDate}}{{/if}}
+          {{#if link}}<span class="live">Live</span>{{/if}}
+        </span>
+      </div>
+      <ul class="bullets">
+        {{#each bullets}}<li>{{this}}</li>{{/each}}
+      </ul>
+      {{#if technologies}}
+      <div class="tech-line"><strong>Technologies:</strong> {{technologies}}</div>
+      {{/if}}
+      {{#if outcomes}}
+      <div class="entry-tech"><strong>Outcomes:</strong> {{outcomes}}</div>
+      {{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if CERTIFICATIONS}}
+  <section>
+    <h2>Certifications</h2>
+    <ul class="certs">
+      {{#each CERTIFICATIONS}}
+      <li>
+        <strong>{{name}}</strong> — {{issuer}}{{#if issueDate}} ({{issueDate}}){{/if}}
+        {{#if credentialId}}<span class="dot">·</span>ID: {{credentialId}}{{/if}}
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+  {{/if}}
+
+  {{#if ACHIEVEMENTS}}
+  <section>
+    <h2>Achievements</h2>
+    <ul class="certs">
+      {{#each ACHIEVEMENTS}}
+      <li>
+        <strong>{{title}}</strong>{{#if issuer}} — {{issuer}}{{/if}}{{#if date}} ({{date}}){{/if}}
+        {{#if description}}<br>{{description}}{{/if}}
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+  {{/if}}
+
+  {{#if VOLUNTEER}}
+  <section>
+    <h2>Volunteer Experience</h2>
+    {{#each VOLUNTEER}}
+    <div class="entry">
+      <div class="entry-row">
+        <span class="entry-title">{{role}}</span>
+        <span class="entry-date">
+          {{startDate}}{{#if endDate}} – {{endDate}}{{/if}}{{#if current}} – Present{{/if}}
+        </span>
+      </div>
+      <div class="entry-sub">{{organization}}</div>
+      {{#if description}}<p class="summary" style="margin-top:4px;font-size:12.5px;">{{description}}</p>{{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if PUBLICATIONS}}
+  <section>
+    <h2>Publications</h2>
+    {{#each PUBLICATIONS}}
+    <div class="entry">
+      <div class="entry-row">
+        <span class="entry-title">{{title}}</span>
+        {{#if date}}<span class="entry-date">{{date}}</span>{{/if}}
+      </div>
+      {{#if publisher}}<div class="entry-sub">{{publisher}}</div>{{/if}}
+      {{#if description}}<p class="summary" style="margin-top:4px;font-size:12.5px;">{{description}}</p>{{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if AFFILIATIONS}}
+  <section>
+    <h2>Professional Affiliations</h2>
+    {{#each AFFILIATIONS}}
+    <div class="entry">
+      <div class="entry-row">
+        <span class="entry-title">{{organization}}</span>
+        {{#if startDate}}<span class="entry-date">{{startDate}}{{#if endDate}} – {{endDate}}{{/if}}</span>{{/if}}
+      </div>
+      {{#if role}}<div class="entry-sub">{{role}}</div>{{/if}}
+      {{#if description}}<p class="summary" style="margin-top:4px;font-size:12.5px;">{{description}}</p>{{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if LANGUAGES}}
+  <section>
+    <h2>Languages</h2>
+    <div class="skills-row" style="font-size:12.5px;line-height:1.8;">
+      {{#each LANGUAGES}}<strong>{{language}}</strong>{{#if proficiency}} ({{proficiency}}){{/if}}{{#unless @last}}, {{/unless}}{{/each}}
+    </div>
+  </section>
+  {{/if}}
+
+  {{#if REFERENCES}}
+  <section>
+    <h2>References</h2>
+    <div class="two-col">
+      {{#each REFERENCES}}
+      <div class="entry">
+        <div class="entry-title">{{name}}</div>
+        {{#if relationship}}<div class="entry-sub">{{relationship}}</div>{{/if}}
+        {{#if company}}<div class="entry-sub">{{company}}</div>{{/if}}
+        {{#if email}}<div class="entry-sub"><a href="mailto:{{email}}">{{email}}</a></div>{{/if}}
+        {{#if phone}}<div class="entry-sub"><a href="tel:{{phone}}">{{phone}}</a></div>{{/if}}
+      </div>
+      {{/each}}
+    </div>
+  </section>
+  {{/if}}
+
+  {{#if CUSTOM_SECTIONS}}
+  {{#each CUSTOM_SECTIONS}}
+  <section>
+    <h2>{{heading}}</h2>
+    {{#each items}}
+    <div class="entry">
+      <div class="entry-title">{{title}}{{#if date}}<span class="entry-date" style="font-size:11.5px;">{{date}}</span>{{/if}}</div>
+      {{#if location}}<div class="entry-sub">{{location}}</div>{{/if}}
+      {{#if description}}<p class="summary" style="margin-top:4px;font-size:12.5px;">{{description}}</p>{{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/each}}
+  {{/if}}
+
+  {{#if REAL_WORLD_PROJECTS}}
+  <section>
+    <h2>Real World Projects</h2>
+    {{#each REAL_WORLD_PROJECTS}}
+    <div class="entry">
+      <div class="entry-row">
+        <span class="entry-title">{{name}}{{#if role}} — {{role}}{{/if}}</span>
+        <span class="entry-date">
+          {{#if startDate}}{{startDate}}{{/if}}{{#if endDate}} – {{endDate}}{{/if}}
+          {{#if link}}<span class="live">Live</span>{{/if}}
+        </span>
+      </div>
+      <ul class="bullets">
+        {{#each bullets}}<li>{{this}}</li>{{/each}}
+      </ul>
+      {{#if technologies}}
+      <div class="tech-line"><strong>Technologies:</strong> {{technologies}}</div>
+      {{/if}}
+      {{#if deployment}}
+      <div class="entry-tech"><strong>Deployment:</strong> {{deployment}}</div>
+      {{/if}}
+      {{#if architecture}}
+      <div class="entry-tech"><strong>Architecture:</strong> {{architecture}}</div>
+      {{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if SOCIAL_LINKS}}
+  <section>
+    <h2>Connect</h2>
+    <div class="skills-row" style="font-size:12.5px;line-height:1.8;">
+      {{#if SOCIAL_LINKS.linkedin}}<strong>LinkedIn:</strong> {{SOCIAL_LINKS.linkedin}}<br>{{/if}}
+      {{#if SOCIAL_LINKS.github}}<strong>GitHub:</strong> {{SOCIAL_LINKS.github}}<br>{{/if}}
+      {{#if SOCIAL_LINKS.leetcode}}<strong>LeetCode:</strong> {{SOCIAL_LINKS.leetcode}}<br>{{/if}}
+      {{#if SOCIAL_LINKS.codeforces}}<strong>Codeforces:</strong> {{SOCIAL_LINKS.codeforces}}<br>{{/if}}
+      {{#if SOCIAL_LINKS.medium}}<strong>Medium:</strong> {{SOCIAL_LINKS.medium}}{{/if}}
+    </div>
+  </section>
+  {{/if}}
+
+</div>
+
+</body>
+</html>

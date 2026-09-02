@@ -13,7 +13,6 @@ import type {
   Achievement,
   VolunteerExperience,
   LanguageProficiency,
-  SocialLinks,
   CustomSection,
   SkillGroup,
 } from "./types";
@@ -111,7 +110,6 @@ async function main() {
     VOLUNTEER: data.volunteerExperience,
     LANGUAGES: data.languages,
     CUSTOM_SECTIONS: data.customSections,
-    SOCIAL_LINKS: data.socialLinks,
   });
 
   const browser = await puppeteer.launch({ headless: true });
